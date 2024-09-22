@@ -7,16 +7,84 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f0f2f5;
         }
         .header {
             text-align: center;
-            padding: 50px;
-            background-color: #007bff;
+            padding: 60px;
+            background: linear-gradient(135deg, #007bff, #6610f2);
             color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .header:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .header h1 {
+            font-size: 3.5rem;
+            animation: colorChange 5s infinite;
+        }
+        @keyframes colorChange {
+            0%, 100% {
+                color: #ffffff;
+            }
+            50% {
+                color: #ffd700;
+            }
         }
         .content {
             margin: 20px;
+        }
+        .project-card {
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .card-title:hover {
+            color: #6610f2;
+        }
+        .contact-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #6610f2, #007bff);
+            border: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            transform: translateY(-2px);
+        }
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .social-icons a:hover {
+            color: #ffd700;
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -27,20 +95,77 @@
         <p>Este é um site de exemplo criado com HTML, CSS e Bootstrap.</p>
     </div>
 
-    <div class="content">
-        <h2>Sobre Mim</h2>
-        <p>Sou um desenvolvedor web em formação, apaixonado por criar sites e aprender novas tecnologias.</p>
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Sobre Mim</h2>
+                <p>Sou um desenvolvedor web em formação, apaixonado por criar sites e aprender novas tecnologias. Tenho experiência com HTML, CSS, JavaScript e Bootstrap.</p>
+                
+                <h2>Projetos</h2>
+                <div class="row">
+                    <div class="col-md-6 project-card">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Projeto 1: Site de exemplo</h5>
+                                <p class="card-text">Um site criado como parte de um projeto de estudo.</p>
+                                <a href="#" class="btn btn-primary">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 project-card">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Projeto 2: Aplicativo web</h5>
+                                <p class="card-text">Um aplicativo web desenvolvido usando JavaScript e Bootstrap.</p>
+                                <a href="#" class="btn btn-primary">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 project-card">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Projeto 3: Portfólio pessoal</h5>
+                                <p class="card-text">Meu portfólio online para mostrar meus trabalhos.</p>
+                                <a href="#" class="btn btn-primary">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <h2>Projetos</h2>
-        <ul>
-            <li>Projeto 1: Site de exemplo</li>
-            <li>Projeto 2: Aplicativo web</li>
-            <li>Projeto 3: Portfólio pessoal</li>
-        </ul>
+            <div class="col-md-4">
+                <h2>Contato</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" id="name" placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Seu email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea class="form-control" id="message" rows="3" placeholder="Sua mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Meu Portfólio</p>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
